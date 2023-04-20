@@ -1,11 +1,28 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./App.jsx";
+import Root from "./Root.jsx";
+import Error from "./pages/Error";
+import Home from "./pages/Home";
+import Picture from "./pages/Picture";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter } from "react-router-dom";
 
-const router = createBrowserRouter([{ path: "/", element: <Root /> }]);
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    errorElement: <Error />,
+    children: [
+      { index: true, element: <Home /> },
+      { path: "/", element: <Home /> },
+      { path: "/picture", element: <Picture /> },
+    ],
+  },
+  // { path: "/picture", element: <Picture />, errorElement: <Error /> },
+]);
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
