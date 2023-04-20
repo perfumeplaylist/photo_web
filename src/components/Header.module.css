@@ -1,0 +1,47 @@
+.container{
+  max-width: 1200px;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  margin:0 auto;
+}
+
+.link{
+  text-decoration: none;
+  color:black;
+}
+
+.header{
+  background-color: antiquewhite;
+  padding: 0 1.000rem;
+}
+
+.logo{
+  display:flex;
+  align-items: center;
+}
+
+.logo__icon{
+  font-size:24px;
+  margin-right:1.000rem;
+}
+
+/* .logo__titie{
+  color:pink
+} */
+
+.navbar{
+  display:flex;
+  align-items: center;
+  list-style: none;
+}
+
+.navbar__list{
+  padding:1.000rem;
+  font-weight: 600;
+  
+}
+
+/* .navbar__list:hover{
+
+} */
