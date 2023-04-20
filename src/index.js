@@ -6,7 +6,6 @@ import Error from "./pages/Error";
 import Home from "./pages/Home";
 import Picture from "./pages/Picture";
 import reportWebVitals from "./reportWebVitals";
-import { createBrowserRouter } from "react-router-dom";
 
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
