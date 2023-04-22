@@ -5,6 +5,7 @@ import Root from "./Root.jsx";
 import Error from "./pages/Error";
 import Home from "./pages/Home";
 import Picture from "./pages/Picture";
+import Camera from "./pages/Camera";
 import reportWebVitals from "./reportWebVitals";
 
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
       { index: true, element: <Home /> },
       { path: "/", element: <Home /> },
       { path: "/picture", element: <Picture /> },
+      { path: "/picture/start", element: <Camera /> },
     ],
   },
   // { path: "/picture", element: <Picture />, errorElement: <Error /> },
