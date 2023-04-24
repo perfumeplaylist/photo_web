@@ -6,6 +6,7 @@ export default function Root() {
     <>
       <Header />
       <Outlet />
+      {/* footer 컴포넌트 */}
     </>
   );
 }

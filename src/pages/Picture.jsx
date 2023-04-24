@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Wrap from "../components/Wrap";
 import { useNavigate } from "react-router-dom";
 // import styles from "./Picture.module.css";
+
 export default function Picture() {
   const [picture, setPicture] = useState({
     url: "",
@@ -23,7 +24,7 @@ export default function Picture() {
     setAbled(false);
   };
 
-  const handleBtnClick = (e) => {
+  const handleBtnClick = () => {
     navigate("/picture/start");
   };
 
