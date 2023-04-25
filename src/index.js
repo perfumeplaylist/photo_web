@@ -9,6 +9,7 @@ import Camera from "./pages/Camera";
 import reportWebVitals from "./reportWebVitals";
 
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Choose from "./pages/Choose";
 
 const router = createBrowserRouter([
   {
@@ -20,7 +21,7 @@ const router = createBrowserRouter([
       { path: "/", element: <Home /> },
       { path: "/picture", element: <Picture /> },
       { path: "/picture/start", element: <Camera /> },
-      { path: "/picture/end", element: <Camera /> },
+      { path: "/picture/end", element: <Choose /> },
     ],
   },
   // { path: "/picture", element: <Picture />, errorElement: <Error /> },

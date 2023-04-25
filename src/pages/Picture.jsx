@@ -1,26 +1,21 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Wrap from "../components/Wrap";
 import { useNavigate } from "react-router-dom";
+import { PictureContext } from "../context/PicutreContext";
 // import styles from "./Picture.module.css";
 
 export default function Picture() {
-  const [picture, setPicture] = useState({
-    url: "",
-    thema: "",
-    frame: "",
-    blank: "",
-    description: "",
-  });
+  const { frame, changeFrame } = useContext(PictureContext);
 
   const [abled, setAbled] = useState(true);
+
   const navigate = useNavigate();
 
   const handlePictureClick = (e) => {
-    setPicture((prev) => ({
-      ...prev,
-      frame: e.target.dataset.frame,
-      blank: e.target.dataset.blank,
-    }));
+    const {
+      target: { dataset: name },
+    } = e;
+    changeFrame(name);
     setAbled(false);
   };
 
@@ -31,8 +26,8 @@ export default function Picture() {
   return (
     <Wrap>
       <section>
-        {picture.frame ? (
-          <img src={picture.frame} style={{ width: 300, height: 300 }} />
+        {frame.frame ? (
+          <img src={frame.frame} style={{ width: 300, height: 300 }} />
         ) : (
           <></>
         )}
