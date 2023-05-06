@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useRef } from "react";
 import Wrap from "../components/Wrap";
 import { useNavigate } from "react-router-dom";
 import { PictureContext } from "../context/PicutreContext";
@@ -6,28 +6,33 @@ import { PictureContext } from "../context/PicutreContext";
 
 export default function Picture() {
   const { frame, changeFrame } = useContext(PictureContext);
-
   const [abled, setAbled] = useState(true);
-
   const navigate = useNavigate();
 
   const handlePictureClick = (e) => {
     const {
-      target: { dataset: name },
+      target: { dataset: name, style },
     } = e;
-    changeFrame(name);
+    changeFrame({
+      frame: name.frame,
+      blank: name.blank,
+      width: style.width,
+      height: style.height,
+    });
     setAbled(false);
   };
 
   const handleBtnClick = () => {
     navigate("/picture/start");
   };
-
   return (
     <Wrap>
       <section>
         {frame.frame ? (
-          <img src={frame.frame} style={{ width: 300, height: 300 }} />
+          <img
+            src={frame.frame}
+            style={{ widht: frame.widht, height: frame.height }}
+          />
         ) : (
           <></>
         )}
@@ -40,10 +45,11 @@ export default function Picture() {
               <button onClick={handlePictureClick}>
                 <img
                   src="인생네컷.jpg"
-                  style={{ width: 300, height: 300 }}
+                  style={{ width: 200, height: 600 }}
                   alt="인생네컷_프레임"
                   data-frame="인생네컷.jpg"
                   data-blank="4"
+                  data-vertical="true"
                 />
               </button>
             </li>
@@ -51,10 +57,11 @@ export default function Picture() {
               <button onClick={handlePictureClick}>
                 <img
                   src="인생네컷-프레임2.jpg"
-                  style={{ width: 300, height: 300 }}
+                  style={{ width: 400, height: 400 }}
                   alt="인생네컷_프레임"
                   data-frame="인생네컷-프레임2.jpg"
                   data-blank="4"
+                  data-vertical="false"
                 />
               </button>
             </li>
