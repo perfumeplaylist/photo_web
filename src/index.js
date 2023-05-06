@@ -22,6 +22,7 @@ const router = createBrowserRouter([
       { path: "/picture", element: <Picture /> },
       { path: "/picture/start", element: <Camera /> },
       { path: "/picture/end", element: <Choose /> },
+      // { path: "/picture/save", element: <Choose /> },
     ],
   },
   // { path: "/picture", element: <Picture />, errorElement: <Error /> },

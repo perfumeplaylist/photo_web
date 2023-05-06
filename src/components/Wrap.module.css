@@ -4,6 +4,6 @@
   align-items: center;
   margin: 1rem auto;
   background-color: thistle;
-  height: 70vh;
-  overflow:scroll;
+  height: 70%;
+  overflow-y:scroll;
 }

@@ -1,4 +1,6 @@
-import { createContext, useState } from "react";
+import { createContext, useReducer } from "react";
+import frameReducer from "../reducer/frame-reducer";
+import pictureReducer from "../reducer/picture-reducer";
 
 export const PictureContext = createContext();
 
@@ -13,34 +15,12 @@ const initialsPicture = {
 };
 
 export function PictureContextProvider({ children }) {
-  const [picture, setPicture] = useState([]);
-  const [frame, setFrame] = useState(initialsPicture);
-
-  const addPicture = (data) => {
-    setPicture((prev) => {
-      return [...prev, data];
-    });
-  };
-
-  const changeFrame = (data) => {
-    const { url, thema, frame, blank, description, width, height, vertical } =
-      data;
-    setFrame((prev) => ({
-      ...prev,
-      url,
-      thema,
-      frame,
-      blank,
-      description,
-      width,
-      height,
-      vertical,
-    }));
-  };
+  const [picture, pictureDispatch] = useReducer(pictureReducer, []);
+  const [frame, frameDispatch] = useReducer(frameReducer, initialsPicture);
 
   return (
     <PictureContext.Provider
-      value={{ picture, frame, changeFrame, addPicture }}
+      value={{ picture, frame, frameDispatch, pictureDispatch }}
     >
       {children}
     </PictureContext.Provider>

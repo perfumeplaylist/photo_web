@@ -5,7 +5,7 @@ import { PictureContext } from "../context/PicutreContext";
 // import styles from "./Picture.module.css";
 
 export default function Picture() {
-  const { frame, changeFrame } = useContext(PictureContext);
+  const { frame, frameDispatch } = useContext(PictureContext);
   const [abled, setAbled] = useState(true);
   const navigate = useNavigate();
 
@@ -13,7 +13,7 @@ export default function Picture() {
     const {
       target: { dataset: name, style },
     } = e;
-    changeFrame({
+    frameDispatch({
       frame: name.frame,
       blank: name.blank,
       vertical: name.vertical,
@@ -26,7 +26,6 @@ export default function Picture() {
   const handleBtnClick = () => {
     navigate("/picture/start");
   };
-  console.log(frame);
   return (
     <Wrap>
       <section>

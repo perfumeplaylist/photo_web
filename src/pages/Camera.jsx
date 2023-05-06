@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 import Wrap from "../components/Wrap";
@@ -10,9 +10,7 @@ export default function Camera() {
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
   const navigate = useNavigate();
-  // const [picture, setPicture] = useState([]);
-  // const [count, setCount] = useState(10);
-  const { picture, addPicture } = useContext(PictureContext);
+  const { picture, pictureDispatch, frame } = useContext(PictureContext);
 
   useEffect(() => {
     async function getMedia() {
@@ -42,7 +40,7 @@ export default function Camera() {
         .getContext("2d")
         .drawImage(video, 0, 0, canvas.width, canvas.height);
       const data = canvas.toDataURL();
-      addPicture(data);
+      pictureDispatch({ type: "add", data });
     }
   };
 
@@ -58,7 +56,7 @@ export default function Camera() {
           <span>{picture.length}</span>
         </div>
         <article>
-          <video ref={videoRef} width="300" height="300" />
+          <video ref={videoRef} width={frame.width} height={frame.height} />
           <canvas ref={canvasRef} style={{ display: "none" }} />
         </article>
         <button
