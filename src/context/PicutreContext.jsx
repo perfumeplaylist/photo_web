@@ -8,6 +8,8 @@ const initialsPicture = {
   frame: "",
   blank: "",
   description: "",
+  width: "",
+  height: "",
 };
 
 export function PictureContextProvider({ children }) {
@@ -21,9 +23,19 @@ export function PictureContextProvider({ children }) {
   };
 
   const changeFrame = (data) => {
-    const { url, thema, frame, blank, description } = data;
-
-    setFrame((prev) => ({ ...prev, url, thema, frame, blank, description }));
+    const { url, thema, frame, blank, description, width, height, vertical } =
+      data;
+    setFrame((prev) => ({
+      ...prev,
+      url,
+      thema,
+      frame,
+      blank,
+      description,
+      width,
+      height,
+      vertical,
+    }));
   };
 
   return (

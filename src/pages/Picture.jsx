@@ -16,6 +16,7 @@ export default function Picture() {
     changeFrame({
       frame: name.frame,
       blank: name.blank,
+      vertical: name.vertical,
       width: style.width,
       height: style.height,
     });
@@ -25,6 +26,7 @@ export default function Picture() {
   const handleBtnClick = () => {
     navigate("/picture/start");
   };
+  console.log(frame);
   return (
     <Wrap>
       <section>
